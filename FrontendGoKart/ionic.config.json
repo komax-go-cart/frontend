@@ -1,0 +1,7 @@
+{
+  "name": "FrontendGoKart",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
