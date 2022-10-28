@@ -1,7 +1,0 @@
-{
-  "name": "HackathonFrontendGoCard",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue"
-}

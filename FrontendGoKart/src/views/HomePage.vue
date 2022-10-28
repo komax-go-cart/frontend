@@ -11,49 +11,45 @@
         </ion-toolbar>
       </ion-header>
 
-      
+
 
       <div class="row">
         <div class="col-12 col-lg-6 kx-card-padding">
           <div class="kx-card" style=" height: ">
-            <div class="kx-card-maxhight" style="height: 13.5rem">
-            <div class="row justify-center q-pa-md text-center">
-            <q-card class="no-margin full-height">
-            <div class="statsHeader">Km/h</div>
-             <h1>20</h1>
-            </q-card>
-            </div>
+            <div class="kx-card-maxhight" style="height: 20.5rem">
+              <q-card class="no-margin full-height" square style="background-color: #C7CBCD  ">
+                <div class="row justify-center q-pa-md text-center">
+                  <h1>Km/h: {{ kmh }}</h1>
+                </div>
+              </q-card>
             </div>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-6 col-lg-3 kx-card-padding">
-          <div class="kx-card-maxhight" style="height: 13.5rem">
-            <div class="row justify-center q-pa-md text-center">
-              <q-card>
-            <div class="statsHeader">Gang</div>
-            <h1>D</h1>
+        <div class="col-6 col-lg-6 kx-card-padding">
+          <div class="kx-card-maxhight" style="height: 17.5rem">
+            <!-- <div class="row justify-center q-pa-md text-center">-->
+            <q-card class="no-margin full-height" square style="background-color: #EEEDED;">
+              <div class="statsHeader">Gang</div>
+              <div class="row justify-center q-pa-md text-center">
+                <h1> {{gear}}</h1>
+              </div>
             </q-card>
-          </div>
-
           </div>
         </div>
 
-        <div class="col-6 col-lg-3 kx-card-padding">
-          <div class="kx-card" style=" height: ">
-            <div class="row justify-center q-pa-md text-center">
-            <q-card>
-            <div class="statsHeader">Drehzahl</div>
-            <h1>2000</h1>
-          </q-card>
-            </div>
+        <div class="col-6 col-lg-6 kx-card-padding">
+          <div class="kx-card-maxhight" style="height: 17.5rem">
+            <q-card class="no-margin full-height" square style="background-color: #A88C7B">
+              <div class="row justify-center q-pa-md text-center">
+                <h1>Rpm: {{ rpm }}</h1>
+              </div>
+            </q-card>
           </div>
         </div>
       </div>
-
-
     </ion-content>
   </ion-page>
 </template>
@@ -61,6 +57,7 @@
 <script lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { ref } from 'vue';
 
 export default defineComponent({
   name: 'HomePage',
@@ -70,6 +67,13 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar
+  },
+  data () {
+    return {
+      kmh: '0',
+      rpm: '0',
+      gear: 'D'
+    }
   }
 });
 </script>
