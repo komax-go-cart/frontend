@@ -48,7 +48,7 @@
               <div class="row justify-center q-pa-md text-center">
                 <h5>Rpm</h5>
                 <div>
-                    <vue-speedometer :value="rpm" needleColor="red" :needleTransitionDuration="40" :maxValue="3000"   startColor="#32a852" endColor="#eb3838"
+                    <vue-speedometer :value="rpm" needleColor="red" :needleTransitionDuration="5" :maxValue="3000"   startColor="#32a852" endColor="#eb3838"
                       needleTransition="easeElastic" />
                   </div>
               </div>
@@ -66,6 +66,9 @@ import { defineComponent } from 'vue';
 import { ref } from 'vue';
 import VueSpeedometer from "vue-speedometer"
 import { io } from "socket.io-client"
+
+const socket = io("http://192.168.0.100:5000")
+
 export default defineComponent({
   name: 'HomePage',
   components: {
@@ -76,16 +79,14 @@ export default defineComponent({
   },
   data() {
     return {
-      kmh: 29,
+      kmh: ref(0),
       rpm: 2500,
       gear: 'D'
     }
   },
-  setup() {
-    const socket = io("http://192.168.0.100:5000")
-
-    socket.on("velocity", (response) => {
-      console.log(response);
+  mounted() {
+    socket.on("currentVelocity", (data) => {
+      this.kmh = Number(data);
     });
   }
 });
