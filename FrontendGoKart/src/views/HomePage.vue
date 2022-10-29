@@ -19,7 +19,7 @@
                 <link rel="shortcut icon" type="image/png" href="<%= BASE_URL %>assets/icon/Logo_Komax.svg.png" />
                 <div class="row justify-center q-pa-md text-center">
                   <div>
-                    <vue-speedometer :value="kmh" needleColor="red" :needleTransitionDuration="40" :maxValue="250" startColor="#396999" endColor="#396999"
+                    <vue-speedometer :value="kmh" needleColor="red" :needleTransitionDuration="40" id="speedometer1" segments="5" :maxValue="150" startColor="#396999" endColor="#396999"
                       needleTransition="easeElastic" />
                   </div>
                   <br>
@@ -36,11 +36,11 @@
             <!-- <div class="row justify-center q-pa-md text-center">-->
             <q-card class="no-margin full-height" square style="background-color: #EEEDED;">
               <div class="row justify-center q-pa-md text-center">
-                <h1> {{ gear }}</h1>
+                <h4 id="gear"> Gang {{ gear }}</h4>
               </div>
             </q-card>
           </div>
-        </div>
+        </div> 
 
         <div class="col-6 col-lg-6 kx-card-padding">
           <div class="kx-card-maxhight" style="height: 17.5rem">
@@ -48,7 +48,7 @@
               <div class="row justify-center q-pa-md text-center">
                 <h5>Rpm</h5>
                 <div>
-                    <vue-speedometer :value="rpm" needleColor="red" :needleTransitionDuration="5" :maxValue="3000"   startColor="#32a852" endColor="#eb3838"
+                    <vue-speedometer :value="rpm" needleColor="red" :needleTransitionDuration="5" id="speedometer2" :maxValue="3000" :heigth="200" margin-top="300px"  startColor="#32a852" endColor="#eb3838"
                       needleTransition="easeElastic" />
                   </div>
               </div>
@@ -101,6 +101,12 @@ export default defineComponent({
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  overflow: hidden;
+}
+body {
+  overflow: hidden; /* Hide scrollbars */
+  -ms-overflow-style: none;  /* IE and Edge */
+
 }
 
 #container strong {
@@ -120,4 +126,17 @@ export default defineComponent({
 #container a {
   text-decoration: none;
 }
+
+#speedometer1 {
+  margin-top: 20%;
+  width: 400;
+}
+#speedometer2 {
+  margin-top: 15%;
+}
+#gear {
+  margin-top: 15%;
+}
+
+
 </style>
