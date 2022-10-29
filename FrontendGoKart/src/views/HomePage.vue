@@ -19,7 +19,7 @@
                 <link rel="shortcut icon" type="image/png" href="<%= BASE_URL %>assets/icon/Logo_Komax.svg.png" />
                 <div class="row justify-center q-pa-md text-center">
                   <div>
-                    <vue-speedometer :value="kmh" needleColor="red" :needleTransitionDuration="40" id="speedometer1" segments="5" :maxValue="150" startColor="#396999" endColor="#396999"
+                    <vue-speedometer :value="kmh" needleColor="red" :needleTransitionDuration="10" id="speedometer1" :maxValue="150" startColor="#396999" endColor="#396999"
                       needleTransition="easeElastic" />
                   </div>
                   <br>
@@ -87,7 +87,10 @@ export default defineComponent({
   mounted() {
     socket.on("currentVelocity", (data) => {
       this.kmh = Number(data);
-      
+    });
+
+    socket.on("currentRPM", (data) => {
+      this.rpm = Number(data);
     });
   }
 });
