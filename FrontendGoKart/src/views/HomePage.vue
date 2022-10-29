@@ -80,13 +80,14 @@ export default defineComponent({
   data() {
     return {
       kmh: ref(0),
-      rpm: 2500,
+      rpm: ref(0),
       gear: 'D'
     }
   },
   mounted() {
     socket.on("currentVelocity", (data) => {
       this.kmh = Number(data);
+      
     });
   }
 });
